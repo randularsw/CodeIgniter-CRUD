@@ -12,8 +12,8 @@ class Crud extends CI_Controller {
 	}
 	public function create(){
 		$data=array(
-			'username'=>$this->input->post{'username'},
-			'speed'=>$this->input->post{'speed'}
+			'username'=>$this->input->post('username'),
+			'speed'=>$this->input->post('speed')
 		);
 		$this->Crudm->createm($data);
 		redirect("Crud");
