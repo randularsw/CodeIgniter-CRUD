@@ -28,7 +28,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="Crud/create">
+                    <form method="post" action="<?php echo base_url('index.php/Crud/create');?>">
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" class="form-control" name="username" placeholder="Enter Username">

@@ -6,11 +6,7 @@ class Crudm extends CI_Model {
 	public function __construct(){
         $this->load->database();
     }
-    function createm($username,$speed){
-        $data=array(
-            'username'=>$username,
-            'speed'=>$speed
-        );
+    public function createm($data){
         $this->db->insert('raceusers',$data);
     }
 }

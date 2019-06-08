@@ -11,8 +11,11 @@ class Crud extends CI_Controller {
 		$this->load->view('crudv');
 	}
 	public function create(){
-		echo $this->input->post{'username'};
-		$this->Crudm->createm($this->input->post{'username'},$this->input->post{'speed'});
+		$data=array(
+			'username'=>$this->input->post{'username'},
+			'speed'=>$this->input->post{'speed'}
+		);
+		$this->Crudm->createm($data);
 		redirect("Crud");
 	}
 }
