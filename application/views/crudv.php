@@ -28,21 +28,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="Crud/create">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control" placeholder="Enter Username">
+                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
                         </div>
                         <div class="form-group">
                             <label>Speed</label>
-                            <input type="number" class="form-control" placeholder="Speed">
+                            <input type="number" class="form-control" name="speed" placeholder="Enter Speed">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" value="save" name="save">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -53,7 +50,6 @@
     <table class="table table-striped table-dark">
         <thead>
             <tr class="bg-danger">
-            <th scope="col">#</th>
             <th scope="col">User ID</th>
             <th scope="col">Username</th>
             <th scope="col">Speed</th>
@@ -62,7 +58,6 @@
         </thead>
         <tbody>
             <tr>
-            <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
