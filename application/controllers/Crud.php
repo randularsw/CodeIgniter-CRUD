@@ -8,7 +8,8 @@ class Crud extends CI_Controller {
 	}
 
 	public function index(){
-		$this->load->view('crudv');
+		$result['data']=$this->Crudm->readm();
+		$this->load->view('crudv',$result);
 	}
 	public function create(){
 		$data=array(
@@ -17,5 +18,8 @@ class Crud extends CI_Controller {
 		);
 		$this->Crudm->createm($data);
 		redirect("Crud");
+	}
+	public function read(){
+		
 	}
 }

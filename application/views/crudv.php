@@ -57,12 +57,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@</td>
-            </tr>
+        <?php
+            $i=1;
+            foreach($data as $row){
+                echo "<tr>";
+                echo "<td>".$row->userid."</td>";
+                echo "<td>".$row->username."</td>";
+                echo "<td>".$row->speed."</td>";
+                echo "</tr>";
+                $i++;
+            }
+        ?>
         </tbody>
         </table>
 

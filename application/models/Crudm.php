@@ -9,4 +9,8 @@ class Crudm extends CI_Model {
     public function createm($data){
         $this->db->insert('raceusers',$data);
     }
+    public function readm(){
+        $query=$this->db->get('raceusers');
+        return $query->result();
+    }
 }
