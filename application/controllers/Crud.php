@@ -19,7 +19,16 @@ class Crud extends CI_Controller {
 		$this->Crudm->createm($data);
 		redirect("Crud");
 	}
-	public function read(){
-		
+	public function update(){
+		$data=array(
+			'username'=>$this->input->post('username'),
+			'speed'=>$this->input->post('speed')
+		);
+		$this->Crudm->updatem($data,$this->input->post('uid'));
+		redirect("Crud");
+	}
+	public function delete(){
+		$this->Crudm->deletem($this->input->post('uid'));
+		redirect("Crud");
 	}
 }

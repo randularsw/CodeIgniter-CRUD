@@ -16,44 +16,42 @@
         <a class="navbar-brand" href="index.php">CodeIgniter CRUD</a>
     </nav>
 
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New</button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="<?php echo base_url('index.php/Crud/create');?>">
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
-                        </div>
-                        <div class="form-group">
-                            <label>Speed</label>
-                            <input type="number" class="form-control" name="speed" placeholder="Enter Speed">
-                        </div>
-                        <button type="submit" class="btn btn-primary" value="save" name="save">Submit</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <br>
-    <br>
-    <table class="table table-striped table-dark">
+    <table class="table table-striped table-light">
         <thead>
-            <tr class="bg-danger">
-            <th scope="col">User ID</th>
-            <th scope="col">Username</th>
-            <th scope="col">Speed</th>
-            <th scope="col">Options</th>
+            <tr class="bg-dark">
+                <th class="text-light" scope="col">User ID</th>
+                <th class="text-light" scope="col">Username</th>
+                <th class="text-light" scope="col">Speed</th>
+                <th scope="col" colspan="2">
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Add New</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add New User</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" action="<?php echo base_url('index.php/Crud/create');?>">
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Speed</label>
+                                            <input type="number" class="form-control" name="speed" placeholder="Enter Speed">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" value="save" name="save">Add</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -64,6 +62,44 @@
                 echo "<td>".$row->userid."</td>";
                 echo "<td>".$row->username."</td>";
                 echo "<td>".$row->speed."</td>";
+                ?>
+                    <td>
+                        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="<?php echo "#exampleModal".$i ?>">Update</button>
+                        <div class="modal fade" id="<?php echo "exampleModal".$i ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Update User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="<?php echo base_url('index.php/Crud/update');?>">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control" name="username" value="<?php echo $row->username ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Speed</label>
+                                                <input type="number" class="form-control" name="speed" value="<?php echo $row->speed ?>">
+                                            </div>
+                                            <input type="hidden" class="form-control" name="uid" value="<?php echo $row->userid ?>">
+                                            <button type="submit" class="btn btn-primary" value="save" name="save">Update</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <form method="post" action="<?php echo base_url('index.php/Crud/delete');?>">
+                            <input type="hidden" class="form-control" name="uid" value="<?php echo $row->userid ?>">
+                            <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                        </form>
+                    </td>
+                <?php
                 echo "</tr>";
                 $i++;
             }

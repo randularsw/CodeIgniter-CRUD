@@ -13,4 +13,12 @@ class Crudm extends CI_Model {
         $query=$this->db->get('raceusers');
         return $query->result();
     }
+    public function updatem($data,$uid){
+        $this->db->where('userid', $uid);
+        $this->db->update('raceusers', $data);
+    }
+    public function deletem($uid){
+        $this->db->where('userid',$uid);
+        $this->db->delete('raceusers');
+    }
 }
